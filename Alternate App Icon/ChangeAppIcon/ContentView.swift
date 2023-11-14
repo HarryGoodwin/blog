@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         if application.supportsAlternateIcons {
             Button("Change app icon") {
-                Task {
+                Task { @MainActor in
                     do {
                         try await application.setAlternateIconName(alternateIconNameToSet)
                     } catch {
